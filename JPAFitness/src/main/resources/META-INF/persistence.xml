@@ -9,7 +9,7 @@
     </provider>
     
     <!-- List Entities Here -->
-    <class>com.skilldistillery.fitness.entities.exercise</class>
+    <class>com.skilldistillery.fitness.entities.Exercise</class>
    
     
     
