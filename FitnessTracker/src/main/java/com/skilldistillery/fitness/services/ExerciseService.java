@@ -14,4 +14,6 @@ Exercise create(Exercise ex);
 Exercise update(Integer id, Exercise ex);
 
 boolean delete(Integer id);
+
+//List<Exercise> getByTypeOfExercise(String keyword);
 }

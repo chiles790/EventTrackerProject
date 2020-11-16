@@ -52,8 +52,11 @@ public class ExerciseServiceImpl implements ExerciseService {
 			if (ex.getAverageCaloriesPerHour() != null) {
 				manageEx.setAverageCaloriesPerHour(ex.getAverageCaloriesPerHour());
 			}
-			if (ex.getComment() != null) {
-				manageEx.setComment(ex.getComment());
+			if (ex.getComments() != null) {
+				manageEx.setComments(ex.getComments());
+			}
+			if(ex.getTypeOfExercise() != null) {
+				manageEx.setTypeOfExercise(ex.getTypeOfExercise());
 			}
 			repo.flush();
 		}
@@ -70,4 +73,11 @@ public class ExerciseServiceImpl implements ExerciseService {
 		}
 		return false;
 	}
+
+//	@Override
+//	public List<Exercise> getByTypeOfExercise(String keyword) {
+//		keyword = "%" + keyword + "%";
+//		return repo.findByTypeOfExercise(keyword);
+//	}
+	
 }

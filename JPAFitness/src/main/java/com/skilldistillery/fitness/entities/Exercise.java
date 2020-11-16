@@ -20,19 +20,24 @@ public class Exercise {
 	@Column(name = "average_calories_per_hour")
 	private Integer averageCaloriesPerHour;
 
-	private String comment;
+	private String comments;
+
+	@Column(name = "type_of_exercise")
+	private String typeOfExercise;
 
 	public Exercise() {
 		super();
 	}
 
-	public Exercise(int id, String name, String description, Integer averageCaloriesPerHour, String comment) {
+	public Exercise(int id, String name, String description, Integer averageCaloriesPerHour, String comments,
+			String typeOfExercise) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.averageCaloriesPerHour = averageCaloriesPerHour;
-		this.comment = comment;
+		this.comments = comments;
+		this.typeOfExercise = typeOfExercise;
 	}
 
 	public int getId() {
@@ -67,15 +72,21 @@ public class Exercise {
 		this.averageCaloriesPerHour = averageCaloriesPerHour;
 	}
 
-	public String getComment() {
-		return comment;
+	public String getComments() {
+		return comments;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 
-	
+	public String getTypeOfExercise() {
+		return typeOfExercise;
+	}
+
+	public void setTypeOfExercise(String typeOfExercise) {
+		this.typeOfExercise = typeOfExercise;
+	}
 
 	@Override
 	public int hashCode() {
@@ -101,8 +112,22 @@ public class Exercise {
 
 	@Override
 	public String toString() {
-		return "Exercise [id=" + id + ", name=" + name + ", description=" + description + ", averageCaloriesPerHour="
-				+ averageCaloriesPerHour + ", comment=" + comment + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Exercise [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", description=");
+		builder.append(description);
+		builder.append(", averageCaloriesPerHour=");
+		builder.append(averageCaloriesPerHour);
+		builder.append(", comments=");
+		builder.append(comments);
+		builder.append(", typeOfExercise=");
+		builder.append(typeOfExercise);
+		builder.append("]");
+		return builder.toString();
 	}
+	
 
 }
