@@ -1,6 +1,6 @@
 # EventTrackerProject
 
-# Exercise Tracker
+# Fitness Tracker
 
 ## Overview
 This program is designed to perform Full CRUD, allowing the user to create, update, search individual workouts and delete date from the database that I created.
