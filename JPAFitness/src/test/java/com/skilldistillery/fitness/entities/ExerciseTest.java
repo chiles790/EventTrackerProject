@@ -43,7 +43,7 @@ class ExerciseTest {
 	@Test
 	void test() {
 		assertNotNull(ex);
-		assertEquals("Cardio", ex.getName());
+		assertEquals("Running", ex.getName());
 	}
 
 }
