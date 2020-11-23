@@ -7,6 +7,35 @@
   </head>
   <body>
     <h1>FitnessTracker</h1>
-    <h2>cool</h2>
+    <form name="fitnessForm">
+        <input type="number" name="exId" placeholder="Exercise Id">
+        <button name="lookup">Get Exercise by Id</button>
+      </form>
+      <div id="output">
+        <div id="fitnessData"></div>
+          </div>
+          <br>
+          <form name="deleteExerciseForm">
+              <input type="number" name="exId" placeholder="Exercise Id">
+              <button type="submit" name="deleteExerciseBtn">Delete</button>
+          </form>
+          <br>
+          <form name="updateExerciseForm">
+            <input type="text" name="name" placeholder="Exercise Name"> <br>
+            <input type="text" name="description" placeholder="Description"> <br>
+            <input type="number" name="averageCaloriesPerHour" placeholder="Average Calories per hour"> <br>
+            <input type="text" name="comments" placeholder="Comments"> <br>
+            <input type="text" name="typeOfExercise" placeholder="Type of Exercise"> <br>
+            <button type="submit" name="updateExerciseBtn">Update</button>
+          </form>
+          <hr>
+          <form name="newExerciseForm">
+            <input type="text" name="name" placeholder="Exercise Name"> <br>
+            <input type="text" name="description" placeholder="Description"> <br>
+            <input type="number" name="averageCaloriesPerHour" placeholder="Average Calories per hour"> <br>
+            <input type="text" name="comments" placeholder="Comments"> <br>
+            <input type="text" name="typeOfExercise" placeholder="Type of Exercise"> <br>
+            <button type="submit" name="submit">Add Exercise</button>
+          </form>
   </body>
 </html>

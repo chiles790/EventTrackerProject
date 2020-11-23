@@ -35,9 +35,9 @@ public class ExerciseController {
 		return svc.getAllExercise();
 	}
 
-	@GetMapping("exercise/{id}")
-	public Exercise show(@PathVariable Integer id, HttpServletResponse response) {
-		Exercise ex = svc.findById(id);
+	@GetMapping("exercise/{exId}")
+	public Exercise show(@PathVariable Integer exId, HttpServletResponse response) {
+		Exercise ex = svc.findById(exId);
 		if (ex == null) {
 			response.setStatus(404);
 		}
@@ -45,40 +45,40 @@ public class ExerciseController {
 	}
 
 	@PostMapping("exercise")
-	public Exercise create(@RequestBody Exercise ex, HttpServletResponse response, HttpServletRequest request) {
+	public Exercise create(@RequestBody Exercise exercise, HttpServletResponse response, HttpServletRequest request) {
 		try{
-			ex = svc.create(ex);
+			exercise = svc.create(exercise);
 			response.setStatus(201);
 			StringBuffer url = request.getRequestURL();
-			url.append("/").append(ex.getId());
+			url.append("/").append(exercise.getId());
 			String urlstr = url.toString();
 			response.setHeader("Location", urlstr);
 		}catch (Exception e) {
 			response.setStatus(400);
-			ex = null;
+			exercise = null;
 		}
-		return ex;
+		return exercise;
 	}
 	
-	@PutMapping("exercise/{id}")
-	public Exercise Update(@PathVariable Integer id, @RequestBody Exercise ex, HttpServletResponse response) {
+	@PutMapping("exercise/{exId}")
+	public Exercise Update(@PathVariable Integer exId, @RequestBody Exercise exercise, HttpServletResponse response) {
 		try {
-			ex = svc.update(id, ex);
-			if(ex == null) {
+			exercise = svc.update(exId, exercise);
+			if(exercise == null) {
 				response.setStatus(404);
 			}
 		} catch (Exception e) {
 			response.setStatus(400);
-			ex = null;
+			exercise = null;
 		}
 		
-		return ex;
+		return exercise;
 	}
 	
-	@DeleteMapping("exercise/{id}")
-	public void delete(@PathVariable Integer id, HttpServletResponse response) {
+	@DeleteMapping("exercise/{exId}")
+	public void delete(@PathVariable Integer exId, HttpServletResponse response) {
 		try {
-			boolean deleted = svc.delete(id);
+			boolean deleted = svc.delete(exId);
 			if(deleted) {
 				response.setStatus(204);
 			}else {

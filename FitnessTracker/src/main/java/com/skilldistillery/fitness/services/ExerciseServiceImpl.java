@@ -21,8 +21,8 @@ public class ExerciseServiceImpl implements ExerciseService {
 	}
 
 	@Override
-	public Exercise findById(Integer id) {
-		Optional<Exercise> exOpt = repo.findById(id);
+	public Exercise findById(Integer exId) {
+		Optional<Exercise> exOpt = repo.findById(exId);
 		Exercise ex = null;
 		if (exOpt.isPresent()) {
 			ex = exOpt.get();
@@ -31,32 +31,32 @@ public class ExerciseServiceImpl implements ExerciseService {
 	}
 
 	@Override
-	public Exercise create(Exercise ex) {
-		ex = repo.saveAndFlush(ex);
-		return ex;
+	public Exercise create(Exercise exercise) {
+		exercise = repo.saveAndFlush(exercise);
+		return exercise;
 
 	}
 
 	@Override
-	public Exercise update(Integer id, Exercise ex) {
-		Optional<Exercise> exOpt = repo.findById(id);
+	public Exercise update(Integer exId, Exercise exercise) {
+		Optional<Exercise> exOpt = repo.findById(exId);
 		Exercise manageEx = null;
 		if (exOpt.isPresent()) {
 			manageEx = exOpt.get();
-			if (ex.getName() != null) {
-				manageEx.setName(ex.getName());
+			if (exercise.getName() != null) {
+				manageEx.setName(exercise.getName());
 			}
-			if (ex.getDescription() != null) {
-				manageEx.setDescription(ex.getDescription());
+			if (exercise.getDescription() != null) {
+				manageEx.setDescription(exercise.getDescription());
 			}
-			if (ex.getAverageCaloriesPerHour() != null) {
-				manageEx.setAverageCaloriesPerHour(ex.getAverageCaloriesPerHour());
+			if (exercise.getAverageCaloriesPerHour() != null) {
+				manageEx.setAverageCaloriesPerHour(exercise.getAverageCaloriesPerHour());
 			}
-			if (ex.getComments() != null) {
-				manageEx.setComments(ex.getComments());
+			if (exercise.getComments() != null) {
+				manageEx.setComments(exercise.getComments());
 			}
-			if(ex.getTypeOfExercise() != null) {
-				manageEx.setTypeOfExercise(ex.getTypeOfExercise());
+			if(exercise.getTypeOfExercise() != null) {
+				manageEx.setTypeOfExercise(exercise.getTypeOfExercise());
 			}
 			repo.flush();
 		}
@@ -64,9 +64,9 @@ public class ExerciseServiceImpl implements ExerciseService {
 	}
 
 	@Override
-	public boolean delete(Integer id) {
+	public boolean delete(Integer exId) {
 		boolean deleted = false;
-		Optional<Exercise> exOpt = repo.findById(id);
+		Optional<Exercise> exOpt = repo.findById(exId);
 		if(exOpt.isPresent()) {
 			repo.delete(exOpt.get());
 			deleted = true;
