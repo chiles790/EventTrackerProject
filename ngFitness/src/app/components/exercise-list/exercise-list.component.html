@@ -10,8 +10,8 @@
   <button (click)="create(newExercise)">Add Exercise</button>
 </form>
 </div>
-<br>
-<br>
+<!-- <br> -->
+<!-- <br> -->
 <div *ngIf="selected">
   <h2>{{selected.name}}</h2>
   <ul>
@@ -22,18 +22,20 @@
   </ul>
   <div>
     <form>
+      <h3>Update Exercise</h3>
       <input [(ngModel)]="selected.name" type="text" name="name" placeholder="Exercise"> <br>
       <textarea [(ngModel)]="selected.description" name="description" cols="30" rows="3" placeholder="Description"></textarea> <br>
       <input [(ngModel)]="selected.averageCaloriesPerHour" type="number" name="averageCaloriesPerHour" placeholder="Average Calories per hour"> <br>
-      <input [(ngModel)]="selected.comments" type="text" name="comments" placeholder="Comments"> <br>
+      <textarea [(ngModel)]="selected.comments" name="comments" cols="30" rows="3" placeholder="Comments"></textarea> <br>
       <input [(ngModel)]="selected.typeOfExercise" type="text" name="typeOfExercise" placeholder="Type of Exercise"> <br>
       <button (click)="update()">Update Exercise</button>
-      <button (click)="delete(selected.id)">Delete Exercise</button>
+      <button (click)="delete(selected.exId)">Delete Exercise</button>
       <button (click)="selected = null">Back to List</button>
   </form>
   </div>
 </div>
 <div *ngIf="! selected">
+  <h2>Exercise List</h2>
   <table>
     <thead>
       <tr>
