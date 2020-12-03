@@ -1,0 +1,53 @@
+<div>
+  <h2>Create new Exercise</h2>
+  <form>
+    <input [(ngModel)]="newExercise.exId" type="number" name="exId" placeholder="Exercise ID"> <br>
+  <input [(ngModel)]="newExercise.name" type="text" name="name" placeholder="Exercise"> <br>
+  <textarea [(ngModel)]="newExercise.description" name="description" cols="30" rows="3" placeholder="Description"></textarea> <br>
+  <input [(ngModel)]="newExercise.averageCaloriesPerHour" type="number" name="averageCaloriesPerHour" placeholder="Average Calories per hour"> <br>
+  <input [(ngModel)]="newExercise.comments" type="text" name="comments" placeholder="Comments"> <br>
+  <input [(ngModel)]="newExercise.typeOfExercise" type="text" name="typeOfExercise" placeholder="Type of Exercise"> <br>
+  <button (click)="create(newExercise)">Add Exercise</button>
+</form>
+</div>
+<br>
+<br>
+<div *ngIf="selected">
+  <h2>{{selected.name}}</h2>
+  <ul>
+    <li>{{selected.description}}</li>
+    <li>{{selected.averageCaloriesPerHour}}</li>
+    <li>{{selected.comments}}</li>
+    <li>{{selected.typeOfExercise}}</li>
+  </ul>
+  <div>
+    <form>
+      <input [(ngModel)]="selected.name" type="text" name="name" placeholder="Exercise"> <br>
+      <textarea [(ngModel)]="selected.description" name="description" cols="30" rows="3" placeholder="Description"></textarea> <br>
+      <input [(ngModel)]="selected.averageCaloriesPerHour" type="number" name="averageCaloriesPerHour" placeholder="Average Calories per hour"> <br>
+      <input [(ngModel)]="selected.comments" type="text" name="comments" placeholder="Comments"> <br>
+      <input [(ngModel)]="selected.typeOfExercise" type="text" name="typeOfExercise" placeholder="Type of Exercise"> <br>
+      <button (click)="update()">Update Exercise</button>
+      <button (click)="delete(selected.id)">Delete Exercise</button>
+      <button (click)="selected = null">Back to List</button>
+  </form>
+  </div>
+</div>
+<div *ngIf="! selected">
+  <table>
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exercise of exercises" (click)="selected = exercise">
+        <td>{{exercise.id}}</td>
+        <td>{{exercise.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

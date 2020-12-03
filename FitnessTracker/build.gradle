@@ -19,11 +19,12 @@ repositories {
 }
 
 dependencies {
-implementation ('org.springframework.boot:spring-boot-starter-tomcat')
 
 	compile project(':JPAFitness')
+implementation ('org.springframework.boot:spring-boot-starter-tomcat')
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

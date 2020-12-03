@@ -63,7 +63,7 @@ public class ExerciseController {
 	}
 	
 	@PutMapping("exercise/{exId}")
-	public Exercise Update(@PathVariable Integer exId, @RequestBody Exercise exercise, HttpServletResponse response) {
+	public Exercise update(@PathVariable Integer exId, @RequestBody Exercise exercise, HttpServletResponse response) {
 		try {
 			exercise = svc.update(exId, exercise);
 			if(exercise == null) {
